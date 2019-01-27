@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import AppStyle from './AppStyle';
-import DiffViewer from './component/DiffViewer';
-import FolderList from './component/FolderList';
-import HomePage from './page/HomePage';
-import Summary from './component/Summary';
-import History from './component/History';
+import AppStyle from '../AppStyle';
+import DiffViewer from '../component/DiffViewer';
+import FolderList from '../component/FolderList';
+import HomePage from '../page/HomePage';
+import Summary from '../component/Summary';
+import History from '../component/History';
 
 const { ipcRenderer } = window.require('electron');
 
-class App extends Component {
+class DiffContianer extends Component {
 	state = {
 		initTree: {},
 		diffContent: [],
@@ -145,4 +145,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default DiffContianer;

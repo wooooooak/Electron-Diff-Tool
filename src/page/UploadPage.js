@@ -11,9 +11,23 @@ const PageWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 `;
-
+const PageBox = styled.div`
+	border-radius: 3px;
+	background: #02101b;
+	box-shadow: 5px 5px 30px #274555;
+	height: 80vh;
+	width: 80vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+`;
 const UploadPage = ({ children }) => {
-	return <PageWrapper>{children}</PageWrapper>;
+	return (
+		<PageWrapper>
+			<PageBox>{children}</PageBox>
+		</PageWrapper>
+	);
 };
 
 export default UploadPage;

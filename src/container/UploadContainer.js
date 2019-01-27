@@ -1,23 +1,11 @@
 import React from 'react';
-import App from './App';
+import DiffContianer from './DiffContianer';
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import UploadPage from './page/UploadPage';
-import DropZone from './component/DropZone';
+import UploadPage from '../page/UploadPage';
+import DropZone from '../component/DropZone';
 import { ClimbingBoxLoader } from 'react-spinners';
 const { ipcRenderer } = window.require('electron');
-
-const PageBox = styled.div`
-	border-radius: 3px;
-	background: #02101b;
-	box-shadow: 5px 5px 30px #274555;
-	height: 80vh;
-	width: 80vw;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-`;
 
 const Title = styled.p`
 	@import url('https://fonts.googleapis.com/css?family=Lobster');
@@ -100,20 +88,18 @@ class UploadContainer extends React.Component {
 			name2
 		} = this.state;
 		if (nextStep) {
-			return <App folderId={folderId} />;
+			return <DiffContianer folderId={folderId} />;
 		} else {
 			return (
 				<UploadPage>
 					{loading ? (
-						<PageBox>
-							<ClimbingBoxLoader
-								color="#3fe4db"
-								size={40}
-								sizeUnit={'px'}
-							/>
-						</PageBox>
+						<ClimbingBoxLoader
+							color="#3fe4db"
+							size={40}
+							sizeUnit={'px'}
+						/>
 					) : (
-						<PageBox>
+						<React.Fragment>
 							<Title>
 								{' '}
 								SHOW <Span color="#fec9c9">D</Span>
@@ -135,7 +121,7 @@ class UploadContainer extends React.Component {
 								/>
 							</DropLine>
 							<Button onClick={this.compare}>START!</Button>
-						</PageBox>
+						</React.Fragment>
 					)}
 				</UploadPage>
 			);
