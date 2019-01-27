@@ -121,7 +121,6 @@ class DiffContianer extends Component {
 		return (
 			<div>
 				<AppStyle />
-				{/* <TitleBar /> */}
 				<Summary summary={summary} onChangeMode={this.onChangeMode} />
 
 				<HomePage>
