@@ -6,7 +6,7 @@ export const ListContaineer = styled.div`
 	height: 90vh;
 	padding-left: 1em;
 	margin-right: 20px;
-	margin-left: -20px;
+	margin-left: -10px;
 	overflow: scroll;
 	::-webkit-scrollbar {
 		width: 0px; /* 세로 스크롤 삭제 */

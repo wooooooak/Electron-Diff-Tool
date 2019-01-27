@@ -7,8 +7,6 @@ import HomePage from './page/HomePage';
 import Summary from './component/Summary';
 import History from './component/History';
 
-import API from './API';
-
 const { ipcRenderer } = window.require('electron');
 
 class App extends Component {
@@ -32,10 +30,7 @@ class App extends Component {
 	};
 
 	componentDidMount = async () => {
-		console.log(this.props.folderId);
-		// const { data } = await API.get(`file/summary`);
 		const data = ipcRenderer.sendSync('file/summary', this.props.folderId);
-		console.log(data);
 		const newTree = ipcRenderer.sendSync('tree/mod', this.props.folderId);
 		newTree.toggled = true;
 		newTree.active = true;
@@ -69,7 +64,7 @@ class App extends Component {
 		}
 	};
 
-	onClickLeafFile = async (cursor) => {
+	onClickLeafFile = (cursor) => {
 		if (!this.isClickCurrentFile(cursor)) {
 			this.setState({
 				diffLoading: true
@@ -97,7 +92,7 @@ class App extends Component {
 		}
 	};
 
-	onChangeMode = async (mode) => {
+	onChangeMode = (mode) => {
 		const tree = ipcRenderer.sendSync(`tree/${mode}`, this.props.folderId);
 		this.setState({
 			mode,
@@ -126,6 +121,7 @@ class App extends Component {
 		return (
 			<div>
 				<AppStyle />
+				{/* <TitleBar /> */}
 				<Summary summary={summary} onChangeMode={this.onChangeMode} />
 
 				<HomePage>

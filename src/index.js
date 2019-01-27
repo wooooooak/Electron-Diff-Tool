@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ProjContainer from './ProjContainer';
+import UploadContainer from './UploadContainer';
 
-ReactDOM.render(<ProjContainer />, document.getElementById('root'));
+ReactDOM.render(<UploadContainer />, document.getElementById('root'));

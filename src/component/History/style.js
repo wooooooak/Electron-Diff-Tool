@@ -1,17 +1,17 @@
-import styled, { keyframes } from "styled-components";
-import { Reset } from "styled-icons/boxicons-regular/Reset";
+import styled, { keyframes } from 'styled-components';
+import { Reset } from 'styled-icons/boxicons-regular/Reset';
 
-const borderPx = "6px";
+const borderPx = '6px';
 
 export const Container = styled.div`
-  font-family: "Noto Sans KR", sans-serif;
-  flex: 2;
-  max-width: 100%;
-  margin-top: 20px;
-  margin-left: 1em;
-  color: black;
-  display: flex;
-  flex-direction: column;
+	font-family: "Noto Sans KR", sans-serif;
+	flex: 2;
+	max-width: 100%;
+	margin-top: 20px;
+	margin-left: 1em;
+	color: black;
+	display: flex;
+	flex-direction: column;
 `;
 
 const expand = keyframes`
@@ -43,17 +43,17 @@ const coloringAnimation = keyframes`
 `;
 
 const Card = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 100%;
-  position: relative;
-  padding: auto 0;
-  text-align: center;
-  background-color: ${props => props.backgroundColor || "#fffffe"};
-  border-radius: 5px;
-  margin-bottom: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: 100%;
+	position: relative;
+	padding: auto 0;
+	text-align: center;
+	background-color: ${(props) => props.backgroundColor || '#fffffe'};
+	border-radius: 5px;
+	margin-bottom: 1em;
 `;
 
 export const CurrentCard = styled(Card)`
@@ -68,33 +68,33 @@ export const RemainCard = styled(Card)`
 `;
 
 export const Name = styled.p`
-  margin: auto 0;
-  font-size: 1.2em;
+	margin: auto 0;
+	font-size: 1.2em;
 `;
 
 export const TitleBar = styled.div`
-  width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin-top: -50px;
-  margin-bottom: 10px;
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	margin-top: -50px;
+	margin-bottom: 10px;
 `;
 
 export const Title = styled.p`
-  font-size: 2em;
-  text-align: center;
-  margin-left: 30%;
+	font-size: 2em;
+	text-align: center;
+	margin-left: 30%;
 `;
 
 export const ClearButton = styled(Reset)`
-  visibility: ${props => props.visibility};
+  visibility: ${(props) => props.visibility};
   font-size: 10px;
   cursor: pointer;
-  margin-left: auto;
+  margin-left: 30px;
   height: 3em;
-  border: 2px solid white;
+  border: 1px solid white;
   min-width: 2em;
   :hover {
     background: white;

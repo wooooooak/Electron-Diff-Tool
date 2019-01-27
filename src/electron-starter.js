@@ -1,33 +1,20 @@
 const path = require('path');
 const url = require('url');
 const { app, BrowserWindow } = require('electron');
-const { ipcMain } = require('electron');
-const exec = require('child_process').exec;
-require('./fileIpcInit');
-require('./treeIpcInit');
+require('./ipc/fileIpcInit');
+require('./ipc/treeIpcInit');
+require('./ipc/compareInit');
 
 let win;
 
-ipcMain.on('compare', (event, arg) => {
-	// exec(
-	// 	`java -jar C:/Users/wooooooak/dev/dadada/dadada.jar "${arg[0]}" "${arg[1]}" "${arg[2]}"`,
-	// 	{},
-	// 	(error, stdout, stderr) => {
-	// 		if (error) {
-	// 			console.log(error);
-	// 		}
-	// 		console.log(stdout);
-	// 		console.log(stderr);
-	// 		event.sender.send('compare_response', { name: 'asdfadf' });
-	// 	}
-	// );
-	setTimeout(() => {
-		event.sender.send('compare_response', { name: 'asdfadf' });
-	}, 1000);
-});
-
-function createWindow() {
-	win = new BrowserWindow({ width: 1600, height: 1600 });
+const createWindow = () => {
+	win = new BrowserWindow({
+		width: 1000,
+		height: 800,
+		titleBarStyle: 'hiddenInset',
+		acceptFirstMouse: true,
+		title: 'SHOW DIFF!'
+	});
 
 	const startUrl =
 		process.env.ELECTRON_START_URL ||
@@ -41,11 +28,10 @@ function createWindow() {
 	// Open the DevTools.
 	win.webContents.openDevTools();
 
-	// Emitted when the window is closed.
 	win.on('closed', () => {
 		win = null;
 	});
-}
+};
 
 app.on('ready', createWindow);
 
@@ -65,6 +51,3 @@ app.on('activate', () => {
 		createWindow();
 	}
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
