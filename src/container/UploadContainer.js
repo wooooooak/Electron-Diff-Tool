@@ -4,16 +4,17 @@ import uniqid from 'uniqid';
 import styled from 'styled-components';
 import UploadPage from '../page/UploadPage';
 import DropZone from '../component/DropZone';
+import Logo from '../component/Logo';
 import { ClimbingBoxLoader } from 'react-spinners';
 const { ipcRenderer } = window.require('electron');
 
 const Title = styled.p`
 	@import url('https://fonts.googleapis.com/css?family=Lobster');
 	width: 80%;
-	font-size: 3em;
+	/* font-size: 3em; */
 	color: #3fe4db;
 	font-family: 'Lobster', cursive;
-	margin: -1em auto 1em;
+	margin: -3em auto 2em;
 	text-align: center;
 `;
 
@@ -38,8 +39,6 @@ const Button = styled.button`
 	border: none;
 	cursor: pointer;
 `;
-
-const Span = styled.span`color: ${(props) => props.color};`;
 
 class UploadContainer extends React.Component {
 	state = {
@@ -101,12 +100,7 @@ class UploadContainer extends React.Component {
 					) : (
 						<React.Fragment>
 							<Title>
-								{' '}
-								SHOW <Span color="#fec9c9">D</Span>
-								<Span color="#ee6e9f">I</Span>
-								<Span color="#fffcf0">F</Span>
-								<Span color="#6d9d88">F</Span>
-								<Span color="#6a60a9">!</Span>
+								<Logo size="3em" />
 							</Title>
 							<DropLine>
 								<DropZone

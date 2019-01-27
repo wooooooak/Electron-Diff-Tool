@@ -6,7 +6,7 @@ const borderPx = '6px';
 export const Container = styled.div`
 	font-family: "Noto Sans KR", sans-serif;
 	flex: 2;
-	max-width: 100%;
+	max-width: 30%;
 	margin-top: 20px;
 	margin-left: 1em;
 	color: black;
@@ -44,6 +44,7 @@ const coloringAnimation = keyframes`
 
 const Card = styled.div`
 	display: flex;
+	word-break: break-word;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
